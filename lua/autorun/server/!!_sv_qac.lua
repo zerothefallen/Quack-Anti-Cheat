@@ -13,7 +13,7 @@ Whats new:
 Hi, QAC 
 --]]
 
-// fuck you fptje. Immature child.
+
 util.AddNetworkString("Ping1")
 util.AddNetworkString("Ping2")
 util.AddNetworkString("checksum")
