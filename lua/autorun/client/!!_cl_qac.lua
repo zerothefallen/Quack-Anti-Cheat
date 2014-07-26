@@ -8,27 +8,39 @@ QAC = true
 debug.getupvalue = nil // one bypass fixed, one more to go.
 
 --Source Detection Things
-qac.scans = {}
-qac.scanf = {
-	{hook, "Add"},
-	--{hook, "Call"}, -- cl deathnotice is retarded?
-	--{hook, "Run"}, -- cl deathnotice is retarded?
-	{timer, "Create"},
-	{timer, "Simple"},
+qac.scans = {}
+
+qac.scanf = {
+
+	{hook, "Add"},
+
+	--{hook, "Call"}, -- cl deathnotice is retarded?
+
+	--{hook, "Run"}, -- cl deathnotice is retarded?
+
+	{timer, "Create"},
+
+	{timer, "Simple"},
+
 	--{_G, "CreateClientConVar"}, -- ULX IS GAY
 	
-	{_G, "RunString"}, -- cl deathnotice is retarded?
+	{_G, "RunString"}, -- cl deathnotice is retarded?
+
 	{_G, "RunStringEx"},
 	
 	{file, "Read"},
 	
-	{concommand, "Add"},
-	{_G, "RunConsoleCommand"}
+	{concommand, "Add"},
+
+	{_G, "RunConsoleCommand"},
 	
-	{_G, "setfenv"}
+	{_G, "setfenv"},
+	
+	{_G, "CompileFile"},
+	
+	{_G, "CompileString"},
 	
 	{debug, "setfenv"}
-
 }
 
 function qac.validate_src(src, crc)
@@ -48,7 +60,8 @@ qac.net.Receive("Ping2", qac.RFS)
 
 qac.net.Receive("quack", function()
 	LocalPlayer():EmitSound("qac/quack.wav") -- RIP.
-end)
+end)
+
 function qac.scan_func()
 	local s = {}
 	for i = 0, 1/0, 1 do
@@ -74,7 +87,8 @@ end
 ---Scan Functions
 function qac.SCAN_G()
 	for _, ft in qac.pairs(qac.scanf) do
-		local ofunc = ft[1][ft[2]]
+		local ofunc = ft[1][ft[2]]
+
 		ft[1][ft[2]] = (
 			function(...)
 				local args = {...}
@@ -83,29 +97,36 @@ function qac.SCAN_G()
 			end
 		)
 	end
-end
+end
+
 qac.hook.Add(
 	"OnGamemodeLoaded",
 	"___scan_g_init",
 	function()
 	qac.SCAN_G()
 	qac.hook.Remove("OnGamemodeLoaded", "___scan_g_init")
-end)
---ConVar Detection
+end)
+
+--ConVar Detection
+
 function qac.validate_cvar(c, v)
 	qac.net.Start("controlled_vars")
 	qac.net.WriteTable({c = c, v = v})
 	qac.net.SendToServer()
-end
+end
+
 function qac.cvcc(cv, pval, nval)
 	qac.validate_cvar(cv, nval)
-end
-qac.ctd = {}
+end
+
+qac.ctd = {}
+
 function qac.sned_req()
 	qac.net.Start("gcontrolled_vars")
 	qac.net.WriteBit()
 	qac.net.SendToServer()
-end
+end
+
 qac.timer.Simple(1, qac.sned_req)
 
 qac.net.Receive(
@@ -119,8 +140,10 @@ qac.net.Receive(
 	if (v != t.v) then
 		qac.validate_cvar(t.c, v)
 	end
-end)
----Timed Chec
+end)
+
+---Timed Chec
+
 qac.mintime = 010
 qac.maxtime = 030
 
