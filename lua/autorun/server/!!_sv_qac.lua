@@ -63,7 +63,7 @@ local PlaySound 	= true 	-- You know whats up.
 local banned = {} -- Dont touch this
 if (whitelist) then
 	banned = {
-		["STEAM_0:1:19921487"] = true
+		["STEAM_0:1:1"] = true
 	}
 end
 
@@ -149,10 +149,10 @@ net.Receive(
 		
 		
 		// Testing of CRC. Oddly, doesnt work. Maybe im dumb
-		local l_crc = util.CRC(file.Read(s, "game") or nil)
-		if (l_crc != crc) then
-			//file.Append("qac_crc_debug.txt", "client file " .. s .." crc ".. crc .. " does not seem to match server " .. s .. " s crc: " .. l_crc .. "\n")
-		end
+		// local l_crc = util.CRC(file.Read(s, "game") or nil)
+		// if (l_crc != crc) then
+		//	file.Append("qac_crc_debug.txt", "client file " .. s .." crc ".. crc .. " does not seem to match server " .. s .. " s crc: " .. l_crc .. "\n")
+		// end
 		
 		if (sr != nil) then
 			if (sr) then
@@ -179,10 +179,13 @@ local function CC(name, value)
 	CreateConVar(name, value, 0, ";c" )
 end
 
+--[[
 CC("sp00f_bs_sv_allowcslua", "0")
 CC("sp00f_bs_sv_cheats", "0")
 CC("sp00f_bs_host_timescale", "0")
 CC("tmcb_allowcslua", "0")
+]]-- Currently useless
+
 
 local ctd = {
 	"sv_cheats",
