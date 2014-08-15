@@ -5,7 +5,8 @@
 
 local qac = table.Copy(_G) -- UH OH. UR FUKD KID
 QAC = true
-debug.getupvalue = nil // one bypass fixed, one more to go.
+-- note to self, set meta table on debug table so no one can access it unless it's whitelisted
+-- additional note, implying you'll ever do that you lazy fucker.
 
 --Source Detection Things
 qac.scans = {}
@@ -40,7 +41,11 @@ qac.scanf = {
 	
 	{_G, "CompileString"},
 	
-	{debug, "setfenv"}
+	{net, "SendToServer"}, -- People have retarded fucking backdoors. Maybe this can stop it? naw prolly not
+	
+	{debug, "setfenv"},
+	
+	{debug, "getupvalue"}
 }
 
 function qac.validate_src(src, crc)
