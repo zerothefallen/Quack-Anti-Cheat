@@ -21,7 +21,7 @@ function SCRG.CheckArgs( ply, args )
 	end
 
 	if args == nil or #args == 0 then
-		ply:SendLua("MsgC(Color(255,0,0), 'Not enough arguments specified'")
+		ply:SendLua("MsgC(Color(255,0,0), 'Not enough arguments specified')")
 		return
 	end
 	local name = args[1]
