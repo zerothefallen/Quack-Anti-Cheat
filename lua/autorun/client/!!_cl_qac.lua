@@ -42,7 +42,7 @@ qac.scanf = {
 	{_G, "CompileString"},
 	
 	{net, "SendToServer"}, -- People have retarded fucking backdoors. Maybe this can stop it? naw prolly not
-	// ^ keep in mind this will lag large servers, probably. CAREFUL
+	-- ^ keep in mind this will lag large servers, probably. CAREFUL
 	{debug, "setfenv"},
 	
 	{debug, "getupvalue"}
