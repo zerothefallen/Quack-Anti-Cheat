@@ -217,7 +217,7 @@ net.Receive(
 
 local function validatevar(p, c, v)
 	if (GetConVar(c):GetString() != (v || "")) then
-		Ban(p, "Recieved UNSYNCHED cvar (" .. c .." = " .. v .. ")") -- Never fix this spelling mistake
+		Ban(p, "Recieved UNSYNCED cvar (" .. c .." = " .. v .. ")") -- Fuck you, zero, it made me twitch.
 	end
 end
 
@@ -258,7 +258,7 @@ timer.Create("STC",10,0, function()
 		if (KickForPings) then
 			if (v.Pings > MaxPings && !v:IsBot()) then
 				//v:Kick("Did not return ping")
-				file.Append("QAC Log.txt", "Kicked " .. v:Name() .. " for  not returning our pings. \n")
+				file.Append("QAC Log.txt", "Kicked " .. v:Name() .. " for not returning our pings. \n")
 				v.Pings = 0
 			end
 		end
@@ -298,7 +298,7 @@ RunString() autoupdate checkversion.
 
 ]]--
 
-print("QAC: Serverside Finished loading")
+print("QAC: Serverside finished loading")
 
 // Credits:
 
