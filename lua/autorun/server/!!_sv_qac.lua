@@ -258,7 +258,7 @@ timer.Create("STC",10,0, function()
 		if (KickForPings) then
 			if (v.Pings > MaxPings && !v:IsBot()) then
 				//v:Kick("Did not return ping")
-				file.Append("QAC Log.txt", "Kicked " .. v:Name() .. " for  not returning our pings. \n")
+				file.Append("QAC Log.txt", "Kicked " .. v:Name() .. " for not returning our pings. \n")
 				v.Pings = 0
 			end
 		end
@@ -298,9 +298,10 @@ RunString() autoupdate checkversion.
 
 ]]--
 
-print("QAC: Serverside Finished loading")
+print("QAC: Server-side finished loading.")
 
 // Credits:
 
 // Zook -- About 75% of version 1 and the method. Without him I would literally know nothing.
 // Zero the fallen -- Continuation of QAC, and myself. Most of the updates/fixes.
+// k00f -- misc ideas, technical, and general being a good friend
