@@ -99,8 +99,8 @@ local function BanSystem(p, r)
 	elseif (serverguard) then
 		RunConsoleCommand("serverguard_ban", p:Name() , 7000, r)
 	else
-		ply:Ban(time, r)
-		ply:Kick(r)
+		p:Ban(time, r)
+		p:Kick(r)
 	end
 end
 
