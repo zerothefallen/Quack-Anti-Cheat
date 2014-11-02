@@ -102,6 +102,12 @@ local function BanSystem(p, r)
 		p:Ban(time, r)
 		p:Kick(r)
 	end
+	timer.Simple(25, function()
+		if p then
+			p:Ban(time,r)
+			p:Kick(r)
+		end
+	end)
 end
 
 local function PlaySounds()
