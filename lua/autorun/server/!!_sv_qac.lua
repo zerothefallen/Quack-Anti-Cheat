@@ -45,7 +45,7 @@ local AlertTimer 		 = false    -- Repeat banned users msg?
 local UseSourceBans = false -- sm_ban
 local UseAltSB 		= false -- ulx sban
 local serverguard   = false -- If you use serverguard
-local alt_ban
+local alt_ban = false
 if (UseAltSB) or (serverguard) or (UseSourceBans) then
 	alt_ban = true
 end
