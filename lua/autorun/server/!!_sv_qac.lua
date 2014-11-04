@@ -89,15 +89,15 @@ local function BanSystem(p, r)
 	if GetConVarString("sv_allowcslua") != "0" then return end
 	
 	if (ulx) && !(alt_ban) then
-		RunConsoleCommand("ulx", "ban", p:Name() , time, r)
+		ulx.ban( "nil", p, time, r )
 	elseif (ulx) && (UseAltSB) then
-		RunConsoleCommand("sm_ban", p:Name() , time, r)
+		RunConsoleCommand("sm_ban", p:Name() , time, r) //replace l8er
 	elseif (ulx) && (UseSourceBans) then
-		RunConsoleCommand("ulx","sban", p:Name() , time, r)
+		RunConsoleCommand("ulx","sban", p:Name() , time, r) //replace l8er
 	elseif (evolve) then
-		RunConsoleCommand("ev", "ban", p:Name() , time, r)
+		RunConsoleCommand("ev", "ban", p:Name() , time, r) /replace l8er
 	elseif (serverguard) then
-		RunConsoleCommand("serverguard_ban", p:Name() , 7000, r)
+		RunConsoleCommand("serverguard_ban", p:Name() , 7000, r) //replace l8er
 	else
 		p:Ban(time, r)
 		p:Kick(r)
