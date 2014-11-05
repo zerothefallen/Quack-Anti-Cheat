@@ -133,7 +133,9 @@ local function Ban(p, r)
 	end
 	
 	PlaySounds()
-	BanSystem(p, r)
+	if (BanWhenDetected) then
+		BanSystem(p, r)
+	end
 end
 
 
