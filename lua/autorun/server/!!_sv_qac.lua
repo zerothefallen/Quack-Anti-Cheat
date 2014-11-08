@@ -95,7 +95,7 @@ local function BanSystem(p, r)
 	elseif (ulx) && (UseSourceBans) then
 		RunConsoleCommand("ulx","sban", p:Name() , time, r) //replace l8er
 	elseif (evolve) then
-		RunConsoleCommand("ev", "ban", p:Name() , time, r) /replace l8er
+		RunConsoleCommand("ev", "ban", p:Name() , time, r) //replace l8er
 	elseif (serverguard) then
 		RunConsoleCommand("serverguard_ban", p:Name() , 7000, r) //replace l8er
 	else
