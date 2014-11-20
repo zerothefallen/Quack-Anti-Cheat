@@ -10,6 +10,12 @@ QAC = true
 
 --Source Detection Things
 qac.scans = {}
+qac.sources = 	{
+				"RunString",
+				"[C]",
+				"LuaCmd"
+				}
+				// shove shit in here that you want to run fine.
 
 qac.scanf = {
 
@@ -80,7 +86,7 @@ function qac.scan_func()
 	end
 	
 	for src, _ in qac.pairs(s) do
-		if (src == "RunString" || src == "LuaCmd" || src == "[C]") then
+		if table.HasValue(qac.sources, src) then
 			return
 		elseif (!(qac.scans[src])) then
 			qac.scans[src] = true
