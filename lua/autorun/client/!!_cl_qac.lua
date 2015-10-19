@@ -6,7 +6,7 @@
 local qac = table.Copy(_G) -- UH OH. UR FUKD KID
 QAC = true
 -- note to self, set meta table on debug table so no one can access it unless it's whitelisted
--- additional note, implying you'll ever do that you lazy fucker.
+-- additional note, implying you'll ever do that you lazy kid.
 
 --Source Detection Things
 qac.scans = {}
@@ -15,7 +15,7 @@ qac.sources = 	{
 				"[C]",
 				"LuaCmd"
 				}
-				// shove shit in here that you want to run fine.
+				// shove stuff in here that you want to run fine.
 
 qac.scanf = {
 
@@ -47,9 +47,9 @@ qac.scanf = {
 	
 	{_G, "CompileString"},
 	
-	//{net, "SendToServer"}, -- People have retarded fucking backdoors. Maybe this can stop it? naw prolly not
+	//{net, "SendToServer"}, -- People have retarded backdoors. Maybe this can stop it? naw prolly not
 	-- ^ keep in mind this will lag large servers, probably. CAREFUL
-	-- Seems to bug nigger developers who are too lazy to fix their own code. :^)
+	-- Seems to bug developers who are too lazy to fix their own code. :^)
 	{debug, "setfenv"},
 	
 	{debug, "getupvalue"}
